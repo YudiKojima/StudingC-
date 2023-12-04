@@ -1,0 +1,14 @@
+C:\Users\marco\source\repos\StudingC#\StudingC#\bin\Debug\net6.0\StudingC#.exe
+C:\Users\marco\source\repos\StudingC#\StudingC#\bin\Debug\net6.0\StudingC#.deps.json
+C:\Users\marco\source\repos\StudingC#\StudingC#\bin\Debug\net6.0\StudingC#.runtimeconfig.json
+C:\Users\marco\source\repos\StudingC#\StudingC#\bin\Debug\net6.0\StudingC#.dll
+C:\Users\marco\source\repos\StudingC#\StudingC#\bin\Debug\net6.0\StudingC#.pdb
+C:\Users\marco\source\repos\StudingC#\StudingC#\obj\Debug\net6.0\StudingC#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marco\source\repos\StudingC#\StudingC#\obj\Debug\net6.0\StudingC#.AssemblyInfoInputs.cache
+C:\Users\marco\source\repos\StudingC#\StudingC#\obj\Debug\net6.0\StudingC#.AssemblyInfo.cs
+C:\Users\marco\source\repos\StudingC#\StudingC#\obj\Debug\net6.0\StudingC#.csproj.CoreCompileInputs.cache
+C:\Users\marco\source\repos\StudingC#\StudingC#\obj\Debug\net6.0\StudingC#.dll
+C:\Users\marco\source\repos\StudingC#\StudingC#\obj\Debug\net6.0\refint\StudingC#.dll
+C:\Users\marco\source\repos\StudingC#\StudingC#\obj\Debug\net6.0\StudingC#.pdb
+C:\Users\marco\source\repos\StudingC#\StudingC#\obj\Debug\net6.0\StudingC#.genruntimeconfig.cache
+C:\Users\marco\source\repos\StudingC#\StudingC#\obj\Debug\net6.0\ref\StudingC#.dll
