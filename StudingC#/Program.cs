@@ -7,18 +7,19 @@ class Program
         public int Energy { get; set; }
         public string Name { get; set; }
         public bool IsDead { get; set; }
+
+        public Player(int energy, string name, bool isDead)
+        {
+            Energy = energy;
+            Name = name;
+            IsDead = isDead;
+        }
     }
 
     private static void Main()
     {
-        var player = new Player()
-        {
-            Energy = 80,
-            Name = "Yud",
-            IsDead = false
-        };
-        Console.WriteLine($"{player.Energy}, {player.Name}, " +
-                          $"{player.IsDead}");
+        var player = new Player(10, "Yudi", false);
+        Console.WriteLine($"{player.Name}, {player.Energy}, {player.IsDead}");
     }
 
     //public static int SumNumberArray(params int[] array)
