@@ -1,36 +1,49 @@
-﻿using System;
+﻿namespace StudingC_;
 
 class Program
 {
-    static void Main()
+    public class Player
     {
-        int result = SumNumberArray(1, 2, 3, 4, 5);
-        Console.WriteLine(result);
+        public int Energy { get; set; }
+        public string Name { get; set; }
+        public bool IsDead { get; set; }
     }
 
-    public static int SumNumberArray(params int[] array)
+    private static void Main()
     {
-        int sum = 0;
-
-        if (array.Length == 0)
+        var player = new Player()
         {
-            Console.WriteLine("Don't has value to sum");
-        }
-
-        if (array.Length == 1)
-        {
-            Console.WriteLine("Has only one value");
-        }
-        else
-        {
-            foreach (var value in array)
-            {
-                sum += value;
-            }
-        }
-
-        return sum;
+            Energy = 80,
+            Name = "Yud",
+            IsDead = false
+        };
+        Console.WriteLine($"{player.Energy}, {player.Name}, " +
+                          $"{player.IsDead}");
     }
+
+    //public static int SumNumberArray(params int[] array)
+    //{
+    //    int sum = 0;
+
+    //    if (array.Length == 0)
+    //    {
+    //        Console.WriteLine("Don't has value to sum");
+    //    }
+
+    //    if (array.Length == 1)
+    //    {
+    //        Console.WriteLine("Has only one value");
+    //    }
+    //    else
+    //    {
+    //        foreach (var value in array)
+    //        {
+    //            sum += value;
+    //        }
+    //    }
+
+    //    return sum;
+    //}
 
     //public static int ToDivide(int dividend, int divider, out int rest)
     //{
