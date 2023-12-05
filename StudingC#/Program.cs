@@ -4,29 +4,52 @@ namespace StudingC_;
 
 class Program
 {
-    public class Calc
+    public class Player
     {
-        public int value1;
-        public int value2;
+        public int Energy { get; set; }
+        private string Name { get; set; }
 
-        public Calc(int value1, int value2)
+        public Player(int energy, string name)
         {
-            this.value1 = value1;
-            this.value2 = value2;
+            Energy = energy;
+            Name = name;
         }
 
-        public int Sum()
+        public void SetEnergyPlayer(int energy)
         {
-            return value1 + value2;
+            if (energy < 0)
+            {
+                Energy = Energy + energy < 0 ? 0 : Energy += energy;
+            }
+            else
+            {
+                Energy = Energy + energy > 100 ? 100 : Energy -= energy;
+            }
         }
     }
-
     public static void Main()
     {
-        var calc = new Calc(5, 2);
-        var result = calc.Sum();
-        Console.WriteLine(result);
+        var player = new Player(100, "Yudi");
+        player.SetEnergyPlayer(150);
+        Console.WriteLine(player.Energy);
     }
+
+    //public class Calc
+    //{
+    //    public int value1;
+    //    public int value2;
+
+    //    public Calc(int value1, int value2)
+    //    {
+    //        this.value1 = value1;
+    //        this.value2 = value2;
+    //    }
+
+    //    public int Sum()
+    //    {
+    //        return value1 + value2;
+    //    }
+    //}
 
     //public static class Player
     //{
