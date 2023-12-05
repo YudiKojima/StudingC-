@@ -4,30 +4,51 @@ namespace StudingC_;
 
 class Program
 {
-    public class Player
+    public static class Player
     {
-        public int Energy { get; set; }
-        public string Name { get; set; }
-        public bool IsDead { get; set; }
+        public static int Energy { get; set; }
+        public static string Name { get; set; }
+        public static bool IsDead { get; set; }
 
-        public Player(int energy, string name, bool isDead)
+        public static void Start(int energy, string name, bool isDead)
         {
             Energy = energy;
             Name = name;
             IsDead = isDead;
         }
-        public void InfoPlayer()
+        public static void InfoPlayer()
         {
             Console.WriteLine($"{Name}, {Energy}, {IsDead}");
         }
     }
-    private static void Main()
-    {
-        var player = new Player(10, "Yudi", false);
-        var player2 = new Player(100, "teste", true);
-        player.InfoPlayer();
-        player2.InfoPlayer();
 
+    public class Enemy
+    {
+        public bool IsDead { get; set; }
+        public string Name { get; set; }
+        public static bool Alert { get; set; }
+
+        public Enemy(string name, bool alert = false)
+        {
+            IsDead = true;
+            Name = name;
+            Alert = alert;
+        }
+
+        public void InfoEnemy()
+        {
+            Console.WriteLine($"{Name}, {IsDead}, {Alert}");
+        }
+    }
+    public static void Main()
+    {
+        Player.Start(100, "Yudi", false);
+        Player.InfoPlayer();
+
+        var enemy1 = new Enemy("Oni");
+        var enemy2 = new Enemy("Bruxa", false);
+        enemy1.InfoEnemy();
+        enemy2.InfoEnemy();
     }
 
     //public static int SumNumberArray(params int[] array)
