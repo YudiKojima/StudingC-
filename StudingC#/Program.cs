@@ -4,52 +4,66 @@ namespace StudingC_;
 
 class Program
 {
-    public static class Player
+    public class Calc
     {
-        public static int Energy { get; set; }
-        public static string Name { get; set; }
-        public static bool IsDead { get; set; }
+        public int value1;
+        public int value2;
 
-        public static void Start(int energy, string name, bool isDead)
+        public Calc(int value1, int value2)
         {
-            Energy = energy;
-            Name = name;
-            IsDead = isDead;
+            this.value1 = value1;
+            this.value2 = value2;
         }
-        public static void InfoPlayer()
+
+        public int Sum()
         {
-            Console.WriteLine($"{Name}, {Energy}, {IsDead}");
+            return value1 + value2;
         }
     }
 
-    public class Enemy
-    {
-        public bool IsDead { get; set; }
-        public string Name { get; set; }
-        public static bool Alert { get; set; }
-
-        public Enemy(string name, bool alert = false)
-        {
-            IsDead = true;
-            Name = name;
-            Alert = alert;
-        }
-
-        public void InfoEnemy()
-        {
-            Console.WriteLine($"{Name}, {IsDead}, {Alert}");
-        }
-    }
     public static void Main()
     {
-        Player.Start(100, "Yudi", false);
-        Player.InfoPlayer();
-
-        var enemy1 = new Enemy("Oni");
-        var enemy2 = new Enemy("Bruxa", false);
-        enemy1.InfoEnemy();
-        enemy2.InfoEnemy();
+        var calc = new Calc(5, 2);
+        var result = calc.Sum();
+        Console.WriteLine(result);
     }
+
+    //public static class Player
+    //{
+    //    public static int Energy { get; set; }
+    //    public static string Name { get; set; }
+    //    public static bool IsDead { get; set; }
+
+    //    public static void Start(int energy, string name, bool isDead)
+    //    {
+    //        Energy = energy;
+    //        Name = name;
+    //        IsDead = isDead;
+    //    }
+    //    public static void InfoPlayer()
+    //    {
+    //        Console.WriteLine($"{Name}, {Energy}, {IsDead}");
+    //    }
+    //}
+
+    //public class Enemy
+    //{
+    //    public bool IsDead { get; set; }
+    //    public string Name { get; set; }
+    //    public static bool Alert { get; set; }
+
+    //    public Enemy(string name, bool alert = false)
+    //    {
+    //        IsDead = true;
+    //        Name = name;
+    //        Alert = alert;
+    //    }
+
+    //    public void InfoEnemy()
+    //    {
+    //        Console.WriteLine($"{Name}, {IsDead}, {Alert}");
+    //    }
+    //}
 
     //public static int SumNumberArray(params int[] array)
     //{
