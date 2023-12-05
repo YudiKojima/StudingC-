@@ -1,4 +1,6 @@
-﻿namespace StudingC_;
+﻿using static StudingC_.Program;
+
+namespace StudingC_;
 
 class Program
 {
@@ -14,12 +16,18 @@ class Program
             Name = name;
             IsDead = isDead;
         }
+        public void InfoPlayer()
+        {
+            Console.WriteLine($"{Name}, {Energy}, {IsDead}");
+        }
     }
-
     private static void Main()
     {
         var player = new Player(10, "Yudi", false);
-        Console.WriteLine($"{player.Name}, {player.Energy}, {player.IsDead}");
+        var player2 = new Player(100, "teste", true);
+        player.InfoPlayer();
+        player2.InfoPlayer();
+
     }
 
     //public static int SumNumberArray(params int[] array)
