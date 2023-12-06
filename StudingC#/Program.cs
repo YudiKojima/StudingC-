@@ -4,35 +4,67 @@ namespace StudingC_;
 
 class Program
 {
-    public class Player
+    public class Vehicle
     {
-        public int Energy { get; set; }
-        private string Name { get; set; }
+        public int Velocity { get; set; }
+        public bool Connect { get; set; }
 
-        public Player(int energy, string name)
+        public Vehicle()
         {
-            Energy = energy;
-            Name = name;
+            Velocity = 120;
+            Connect = false;
         }
 
-        public void SetEnergyPlayer(int energy)
+        public string CheckConnectVehicle()
         {
-            if (energy < 0)
-            {
-                Energy = Energy + energy < 0 ? 0 : Energy += energy;
-            }
-            else
-            {
-                Energy = Energy + energy > 100 ? 100 : Energy -= energy;
-            }
+            return Connect ? "Yes" : "No";
         }
     }
+
+    public class Car : Vehicle
+    {
+        public string Name { get; set; }
+        public string Color { get; set; }
+
+        public Car(string name, string color)
+        {
+            Name = name;
+            Color = color;
+            Connect = true;
+        }
+    }
+
     public static void Main()
     {
-        var player = new Player(100, "Yudi");
-        player.SetEnergyPlayer(150);
-        Console.WriteLine(player.Energy);
+        var car = new Car("Honda", "Black");
+        var vehicle = new Vehicle();
+        Console.WriteLine($"{car.Name}, {car.Color}, " +
+                          $"{car.Velocity}, {car.CheckConnectVehicle()}");
     }
+
+    //public class Player
+    //{
+    //    public int Energy { get; set; }
+    //    private string Name { get; set; }
+
+    //    public Player(int energy, string name)
+    //    {
+    //        Energy = energy;
+    //        Name = name;
+    //    }
+
+    //    public void SetEnergyPlayer(int energy)
+    //    {
+    //        if (energy < 0)
+    //        {
+    //            Energy = Energy + energy < 0 ? 0 : Energy += energy;
+    //        }
+    //        else
+    //        {
+    //            Energy = Energy + energy > 100 ? 100 : Energy -= energy;
+    //        }
+    //    }
+    //}
 
     //public class Calc
     //{
