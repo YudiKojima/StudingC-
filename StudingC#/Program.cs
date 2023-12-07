@@ -4,58 +4,88 @@ namespace StudingC_;
 
 class Program
 {
-    public class Vehicle
+    public class Book
     {
-        public int Velocity { get; set; }
-        public bool Connect { get; set; }
-        public int Wheels { get; set; }
+        public int Quantity { get; set; }
+        private string Name { get; set; }
+        protected bool Reserved { get; set; }
 
-        public Vehicle(int wheels)
+        public Book(string name)
         {
-            Velocity = 120;
-            Connect = false;
-            Wheels = wheels;
-        }
-
-        public string CheckConnectVehicle()
-        {
-            return Connect ? "Yes" : "No";
-        }
-    }
-
-    public class Car : Vehicle
-    {
-        public string Name { get; set; }
-        public string Color { get; set; }
-
-        public Car(string name, string color) : base(6)
-        {
+            Quantity = 1;
             Name = name;
-            Color = color;
-            Connect = true;
+            Reserved = false;
         }
-    }
 
-    public class TruckCar : Car
-    {
-        public bool HasWeapon { get; set; }
-        public TruckCar(bool hasWeapon) : base("Monster Truck", "Red")
+        public string GetNameBook()
         {
-            HasWeapon = hasWeapon;
+            return Name;
         }
     }
 
+    public class SchoolBook : Book
+    {
+        public int Score { get; set; }
+        public SchoolBook(int score, bool reserved, string name) : base(name)
+        {
+            Score = score;
+            Reserved = reserved;
+        }
+
+        public bool GetReservedBook()
+        {
+            return Reserved;
+        }
+    }
     public static void Main()
     {
-        var vehicle = new Vehicle(4);
-        var car = new Car("Honda", "Black");
-        var truckCar = new TruckCar(true);
-        Console.WriteLine($"Vehicle : {vehicle.Wheels}");
-        Console.WriteLine($"Car : {car.Name}, {car.Wheels}, {car.Color}, " +
-                          $"{car.Velocity}, {car.CheckConnectVehicle()}");
-        Console.WriteLine($"{truckCar.Name}, {truckCar.Color}, " +
-                          $"{truckCar.HasWeapon}");
+        var book = new Book("Teste");
+        var schoolBook = new SchoolBook(10, false, "Alice");
+        Console.WriteLine($"{book.GetNameBook()}");
+        Console.WriteLine($"{schoolBook.GetNameBook()}, " +
+                          $"{schoolBook.Score}, {schoolBook.GetReservedBook()}");
     }
+
+    //public class Vehicle
+    //{
+    //    public int Velocity { get; set; }
+    //    public bool Connect { get; set; }
+    //    public int Wheels { get; set; }
+
+    //    public Vehicle(int wheels)
+    //    {
+    //        Velocity = 120;
+    //        Connect = false;
+    //        Wheels = wheels;
+    //    }
+
+    //    public string CheckConnectVehicle()
+    //    {
+    //        return Connect ? "Yes" : "No";
+    //    }
+    //}
+
+    //public class Car : Vehicle
+    //{
+    //    public string Name { get; set; }
+    //    public string Color { get; set; }
+
+    //    public Car(string name, string color) : base(6)
+    //    {
+    //        Name = name;
+    //        Color = color;
+    //        Connect = true;
+    //    }
+    //}
+
+    //public class TruckCar : Car
+    //{
+    //    public bool HasWeapon { get; set; }
+    //    public TruckCar(bool hasWeapon) : base("Monster Truck", "Red")
+    //    {
+    //        HasWeapon = hasWeapon;
+    //    }
+    //}
 
     //public class Player
     //{
