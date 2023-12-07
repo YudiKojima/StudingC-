@@ -8,11 +8,13 @@ class Program
     {
         public int Velocity { get; set; }
         public bool Connect { get; set; }
+        public int Wheels { get; set; }
 
-        public Vehicle()
+        public Vehicle(int wheels)
         {
             Velocity = 120;
             Connect = false;
+            Wheels = wheels;
         }
 
         public string CheckConnectVehicle()
@@ -26,7 +28,7 @@ class Program
         public string Name { get; set; }
         public string Color { get; set; }
 
-        public Car(string name, string color)
+        public Car(string name, string color) : base(6)
         {
             Name = name;
             Color = color;
@@ -34,12 +36,25 @@ class Program
         }
     }
 
+    public class TruckCar : Car
+    {
+        public bool HasWeapon { get; set; }
+        public TruckCar(bool hasWeapon) : base("Monster Truck", "Red")
+        {
+            HasWeapon = hasWeapon;
+        }
+    }
+
     public static void Main()
     {
+        var vehicle = new Vehicle(4);
         var car = new Car("Honda", "Black");
-        var vehicle = new Vehicle();
-        Console.WriteLine($"{car.Name}, {car.Color}, " +
+        var truckCar = new TruckCar(true);
+        Console.WriteLine($"Vehicle : {vehicle.Wheels}");
+        Console.WriteLine($"Car : {car.Name}, {car.Wheels}, {car.Color}, " +
                           $"{car.Velocity}, {car.CheckConnectVehicle()}");
+        Console.WriteLine($"{truckCar.Name}, {truckCar.Color}, " +
+                          $"{truckCar.HasWeapon}");
     }
 
     //public class Player
