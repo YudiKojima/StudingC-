@@ -4,47 +4,65 @@ namespace StudingC_;
 
 class Program
 {
-    public class Book
+    public class Base1
     {
-        public int Quantity { get; set; }
-        private string Name { get; set; }
-        protected bool Reserved { get; set; }
-
-        public Book(string name)
+        public virtual void Info()
         {
-            Quantity = 1;
-            Name = name;
-            Reserved = false;
-        }
-
-        public string GetNameBook()
-        {
-            return Name;
+            Console.WriteLine("Info Base 1");
         }
     }
 
-    public class SchoolBook : Book
+    public class Base2 : Base1
     {
-        public int Score { get; set; }
-        public SchoolBook(int score, bool reserved, string name) : base(name)
+        public override void Info()
         {
-            Score = score;
-            Reserved = reserved;
-        }
-
-        public bool GetReservedBook()
-        {
-            return Reserved;
+            Console.WriteLine("Info Base 2");
         }
     }
+
     public static void Main()
     {
-        var book = new Book("Teste");
-        var schoolBook = new SchoolBook(10, false, "Alice");
-        Console.WriteLine($"{book.GetNameBook()}");
-        Console.WriteLine($"{schoolBook.GetNameBook()}, " +
-                          $"{schoolBook.Score}, {schoolBook.GetReservedBook()}");
+        Base1 Ref;
+        var base1 = new Base1();
+        var base2 = new Base2();
+        Ref = base2;
+        Ref.Info();
     }
+
+    //public class Book
+    //{
+    //    public int Quantity { get; set; }
+    //    private string Name { get; set; }
+    //    protected bool Reserved { get; set; }
+
+    //    public Book(string name)
+    //    {
+    //        Quantity = 1;
+    //        Name = name;
+    //        Reserved = false;
+    //    }
+
+    //    public string GetNameBook()
+    //    {
+    //        return Name;
+    //    }
+    //}
+
+    //public class SchoolBook : Book
+    //{
+    //    public int Score { get; set; }
+    //    public SchoolBook(int score, bool reserved, string name) : base(name)
+    //    {
+    //        Score = score;
+    //        Reserved = reserved;
+    //    }
+
+    //    public bool GetReservedBook()
+    //    {
+    //        return Reserved;
+    //    }
+    //}
+
 
     //public class Vehicle
     //{
