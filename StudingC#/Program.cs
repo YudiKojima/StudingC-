@@ -4,48 +4,56 @@ namespace StudingC_;
 
 class Program
 {
-    abstract class Book
+    sealed class Book
     {
-        protected int Quantity { get; set; }
-        protected int Cost { get; set; }
-        protected bool Reserved { get; set; }
+        public bool Inherit { get; set; }
 
-        protected Book()
+        // nao e possivel herdar esta classe por ser sealed
+        public Book()
         {
-            Reserved = false;
-            Cost = 0;
-        }
-
-        public abstract void SetReserve();
-    }
-
-    class MaterialBook : Book
-    {
-        public MaterialBook()
-        {
-            Quantity = 1;
-            Cost = 10;
-            Reserved = false;
-        }
-
-        public void GetReserve()
-        {
-            Console.WriteLine($"{Reserved}");
-        }
-
-        public override void SetReserve()
-        {
-            Reserved = true;
+            Inherit = false;
         }
     }
 
     public static void Main()
     {
-        var book = new MaterialBook();
-        book.GetReserve();
-        book.SetReserve();
-        book.GetReserve();
+        var book = new Book();
     }
+
+    //abstract class Book
+    //{
+    //    protected int Quantity { get; set; }
+    //    protected int Cost { get; set; }
+    //    protected bool Reserved { get; set; }
+
+    //    protected Book()
+    //    {
+    //        Reserved = false;
+    //        Cost = 0;
+    //    }
+
+    //    public abstract void SetReserve();
+    //}
+
+    //class MaterialBook : Book
+    //{
+    //    public MaterialBook()
+    //    {
+    //        Quantity = 1;
+    //        Cost = 10;
+    //        Reserved = false;
+    //    }
+
+    //    public void GetReserve()
+    //    {
+    //        Console.WriteLine($"{Reserved}");
+    //    }
+
+    //    public override void SetReserve()
+    //    {
+    //        Reserved = true;
+    //    }
+    //}
 
     //public class Base1
     //{
