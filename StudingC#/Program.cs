@@ -4,30 +4,64 @@ namespace StudingC_;
 
 class Program
 {
-    public class Base1
+    abstract class Book
     {
-        public virtual void Info()
+        protected int Quantity { get; set; }
+        protected int Cost { get; set; }
+        protected bool Reserved { get; set; }
+
+        protected Book()
         {
-            Console.WriteLine("Info Base 1");
+            Reserved = false;
+            Cost = 0;
         }
+
+        public abstract void SetReserve();
     }
 
-    public class Base2 : Base1
+    class MaterialBook : Book
     {
-        public override void Info()
+        public MaterialBook()
         {
-            Console.WriteLine("Info Base 2");
+            Quantity = 1;
+            Cost = 10;
+            Reserved = false;
+        }
+
+        public void GetReserve()
+        {
+            Console.WriteLine($"{Reserved}");
+        }
+
+        public override void SetReserve()
+        {
+            Reserved = true;
         }
     }
 
     public static void Main()
     {
-        Base1 Ref;
-        var base1 = new Base1();
-        var base2 = new Base2();
-        Ref = base2;
-        Ref.Info();
+        var book = new MaterialBook();
+        book.GetReserve();
+        book.SetReserve();
+        book.GetReserve();
     }
+
+    //public class Base1
+    //{
+    //    public virtual void Info()
+    //    {
+    //        Console.WriteLine("Info Base 1");
+    //    }
+    //}
+
+    //public class Base2 : Base1
+    //{
+    //    public override void Info()
+    //    {
+    //        Console.WriteLine("Info Base 2");
+    //    }
+    //}
 
     //public class Book
     //{
