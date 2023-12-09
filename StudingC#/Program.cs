@@ -2,7 +2,14 @@
 
 class Program
 {
-    public class Car
+    public interface ICar
+    {
+        public bool Radar(int velocity);
+        public void OutOfLimit(bool insideLimit);
+    }
+
+
+    public class Car : ICar
     {
         public int Velocity { get; set; }
 
@@ -18,12 +25,34 @@ class Program
         {
             Velocity = velocity;
         }
+
+        public bool Radar(int velocity)
+        {
+            return InsideLimit;
+        }
+
+        public void OutOfLimit(bool insideLimit)
+        {
+            Console.WriteLine(insideLimit ? "voce se livrou da multa" : "FOI MULTADO");
+        }
+    }
+    public class Honda : Car
+    {
+        public string Name { get; set; }
+
+        public Honda(string name) : base(60)
+        {
+            Name = name;
+        }
     }
 
     public static void Main()
     {
-        var car = new Car(63);
-        Console.WriteLine(car.InsideLimit);
+        var car = new Car(70);
+        car.OutOfLimit(car.Radar(car.Velocity));
+
+        var honda = new Honda("Honda");
+        honda.OutOfLimit(honda.Radar(honda.Velocity));
     }
 }
 
