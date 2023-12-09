@@ -2,59 +2,97 @@
 
 class Program
 {
-    public interface ICar
-    {
-        public bool Radar(int velocity);
-        public void OutOfLimit(bool insideLimit);
-    }
-
-
-    public class Car : ICar
-    {
-        public int Velocity { get; set; }
-
-        public bool InsideLimit
-        {
-            get
-            {
-                return Velocity <= 60;
-            }
-        }
-
-        public Car(int velocity)
-        {
-            Velocity = velocity;
-        }
-
-        public bool Radar(int velocity)
-        {
-            return InsideLimit;
-        }
-
-        public void OutOfLimit(bool insideLimit)
-        {
-            Console.WriteLine(insideLimit ? "voce se livrou da multa" : "FOI MULTADO");
-        }
-    }
-    public class Honda : Car
+    public class Chicken
     {
         public string Name { get; set; }
+        public int TimesEggsLaid { get; set; }
+        public Egg LastEgg { get; set; }
 
-        public Honda(string name) : base(60)
+        public Chicken(string name)
         {
             Name = name;
+            TimesEggsLaid = 0;
+            LastEgg = new Egg();
+        }
+
+        public Egg LayEgg(int times)
+        {
+            TimesEggsLaid = +times;
+            LastEgg = new Egg(times);
+            return LastEgg;
+        }
+    }
+
+    public class Egg
+    {
+        public int Quantity { get; set; }
+
+        public Egg(int quantity = 0)
+        {
+            Quantity += quantity;
+            if (quantity > 0)
+            {
+                Console.WriteLine(Quantity == 1 ? "Ovo foi criado!" : "Ovos foram criados!");
+            }
         }
     }
 
     public static void Main()
     {
-        var car = new Car(70);
-        car.OutOfLimit(car.Radar(car.Velocity));
-
-        var honda = new Honda("Honda");
-        honda.OutOfLimit(honda.Radar(honda.Velocity));
+        var chicken = new Chicken("Galinha");
+        Console.WriteLine($"{chicken.Name} lay {chicken.LastEgg.Quantity} Egg");
+        chicken.LayEgg(1);
+        Console.WriteLine($"{chicken.Name} lay {chicken.LastEgg.Quantity} Egg");
+        chicken.LayEgg(2);
+        Console.WriteLine($"{chicken.Name} lay {chicken.LastEgg.Quantity} Egg");
+        chicken.LayEgg(5);
+        Console.WriteLine($"{chicken.Name} lay {chicken.LastEgg.Quantity} Egg");
     }
 }
+
+//public interface ICar
+//{
+//    public bool Radar(int velocity);
+//    public void OutOfLimit(bool insideLimit);
+//}
+
+
+//public class Car : ICar
+//{
+//    public int Velocity { get; set; }
+
+//    public bool InsideLimit
+//    {
+//        get
+//        {
+//            return Velocity <= 60;
+//        }
+//    }
+
+//    public Car(int velocity)
+//    {
+//        Velocity = velocity;
+//    }
+
+//    public bool Radar(int velocity)
+//    {
+//        return InsideLimit;
+//    }
+
+//    public void OutOfLimit(bool insideLimit)
+//    {
+//        Console.WriteLine(insideLimit ? "voce se livrou da multa" : "FOI MULTADO");
+//    }
+//}
+//public class Honda : Car
+//{
+//    public string Name { get; set; }
+
+//    public Honda(string name) : base(60)
+//    {
+//        Name = name;
+//    }
+//}
 
 //abstract class Book
 //{
