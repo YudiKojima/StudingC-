@@ -2,53 +2,74 @@
 
 class Program
 {
-    public class Chicken
+    public class Calculate
     {
-        public string Name { get; set; }
-        public int TimesEggsLaid { get; set; }
-        public Egg LastEgg { get; set; }
-
-        public Chicken(string name)
+        public int Sum(int n1, int n2)
         {
-            Name = name;
-            TimesEggsLaid = 0;
-            LastEgg = new Egg();
+            return n1 + n2;
+        }
+        public double Sum(double n1, double n2)
+        {
+            return n1 + n2;
         }
 
-        public Egg LayEgg(int times)
+        public int Sum(int n1, int n2, int n3)
         {
-            TimesEggsLaid = +times;
-            LastEgg = new Egg(times);
-            return LastEgg;
+            return n1 + n2 + n3;
         }
-    }
 
-    public class Egg
-    {
-        public int Quantity { get; set; }
-
-        public Egg(int quantity = 0)
+        public int Sum(int n1, int n2, int n3, int n4)
         {
-            Quantity += quantity;
-            if (quantity > 0)
-            {
-                Console.WriteLine(Quantity == 1 ? "Ovo foi criado!" : "Ovos foram criados!");
-            }
+            return n1 + n2 + n3 + n4;
         }
+
     }
 
     public static void Main()
     {
-        var chicken = new Chicken("Galinha");
-        Console.WriteLine($"{chicken.Name} lay {chicken.LastEgg.Quantity} Egg");
-        chicken.LayEgg(1);
-        Console.WriteLine($"{chicken.Name} lay {chicken.LastEgg.Quantity} Egg");
-        chicken.LayEgg(2);
-        Console.WriteLine($"{chicken.Name} lay {chicken.LastEgg.Quantity} Egg");
-        chicken.LayEgg(5);
-        Console.WriteLine($"{chicken.Name} lay {chicken.LastEgg.Quantity} Egg");
+        var calc = new Calculate();
+
+        Console.WriteLine($"{calc.Sum(1, 2)}");
+        Console.WriteLine($"{calc.Sum(1, 2, 3)}");
+        Console.WriteLine($"{calc.Sum(1, 2, 3, 4)}");
+        Console.WriteLine($"{calc.Sum(1.4, 2.1)}");
     }
 }
+
+//public class Chicken
+//{
+//    public string Name { get; set; }
+//    public int TimesEggsLaid { get; set; }
+//    public Egg LastEgg { get; set; }
+
+//    public Chicken(string name)
+//    {
+//        Name = name;
+//        TimesEggsLaid = 0;
+//        LastEgg = new Egg();
+//    }
+
+//    public Egg LayEgg(int times)
+//    {
+//        TimesEggsLaid = +times;
+//        LastEgg = new Egg(times);
+//        return LastEgg;
+//    }
+//}
+
+//public class Egg
+//{
+//    public int Quantity { get; set; }
+
+//    public Egg(int quantity = 0)
+//    {
+//        Quantity += quantity;
+//        if (quantity > 0)
+//        {
+//            Console.WriteLine(Quantity == 1 ? "Ovo foi criado!" : "Ovos foram criados!");
+//        }
+//    }
+//}
 
 //public interface ICar
 //{
