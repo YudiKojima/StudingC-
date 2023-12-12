@@ -2,15 +2,22 @@
 
 class Program
 {
-    public static void Main(string[] args)
+    public static void Main()
     {
-        if (args.Length > 0)
+        int n1 = 0, n2 = 0, result = 0;
+
+        n1 = 10;
+        n2 = 0;
+
+        try
         {
-            Console.WriteLine($"{args.Length}");
+            result = n1 / n2;
+            Console.WriteLine(result);
         }
-        else
+        catch (Exception e)
         {
-            Console.WriteLine("Don't have args");
+            Console.WriteLine($"ERRO MESSAGE: {e.Message}");
+            Console.WriteLine($"EXCEPTION: {e}");
         }
     }
 }
