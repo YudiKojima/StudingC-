@@ -2,11 +2,12 @@
 
 class Program
 {
+
+    delegate int Operation(int n1, int n2);
+
     public class Calc
     {
-        public static double pi = 3.14;
-
-        public static int fac(int n)
+        public static int Fac(int n)
         {
             int res;
 
@@ -16,19 +17,29 @@ class Program
             }
             else
             {
-                res = n * fac(n - 1);
+                res = n * Fac(n - 1);
             }
 
             return res;
+        }
+
+        public static int Sum(int n1, int n2)
+        {
+            return n1 + n2;
+        }
+
+        public static int Multi(int n1, int n2)
+        {
+            return n1 * n2;
         }
     }
 
     public static void Main()
     {
-        var pi = Calc.pi;
-        var res = Calc.fac(5);
-
-        Console.WriteLine($"{pi}, {res}");
+        var operation1 = new Operation(Calc.Sum);
+        Console.WriteLine(operation1(5, 5));
+        var operation2 = new Operation(Calc.Multi);
+        Console.WriteLine(operation2(5, 5));
     }
 }
 
