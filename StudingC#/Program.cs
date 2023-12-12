@@ -2,39 +2,56 @@
 
 class Program
 {
-    public class Calculate
+    public class Calc
     {
-        public int Sum(int n1, int n2)
+        public int fac(int n)
         {
-            return n1 + n2;
-        }
-        public double Sum(double n1, double n2)
-        {
-            return n1 + n2;
-        }
+            int res;
 
-        public int Sum(int n1, int n2, int n3)
-        {
-            return n1 + n2 + n3;
-        }
+            if (n <= 1)
+            {
+                res = 1;
+            }
+            else
+            {
+                res = n * fac(n - 1);
+            }
 
-        public int Sum(int n1, int n2, int n3, int n4)
-        {
-            return n1 + n2 + n3 + n4;
+            return res;
         }
-
     }
 
     public static void Main()
     {
-        var calc = new Calculate();
+        var calc = new Calc();
+        var res = calc.fac(5);
 
-        Console.WriteLine($"{calc.Sum(1, 2)}");
-        Console.WriteLine($"{calc.Sum(1, 2, 3)}");
-        Console.WriteLine($"{calc.Sum(1, 2, 3, 4)}");
-        Console.WriteLine($"{calc.Sum(1.4, 2.1)}");
+        Console.WriteLine(res);
     }
 }
+
+//public class Calculate
+//{
+//    public int Sum(int n1, int n2)
+//    {
+//        return n1 + n2;
+//    }
+//    public double Sum(double n1, double n2)
+//    {
+//        return n1 + n2;
+//    }
+
+//    public int Sum(int n1, int n2, int n3)
+//    {
+//        return n1 + n2 + n3;
+//    }
+
+//    public int Sum(int n1, int n2, int n3, int n4)
+//    {
+//        return n1 + n2 + n3 + n4;
+//    }
+
+//}
 
 //public class Chicken
 //{
