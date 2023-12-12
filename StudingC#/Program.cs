@@ -4,7 +4,9 @@ class Program
 {
     public class Calc
     {
-        public int fac(int n)
+        public static double pi = 3.14;
+
+        public static int fac(int n)
         {
             int res;
 
@@ -23,10 +25,10 @@ class Program
 
     public static void Main()
     {
-        var calc = new Calc();
-        var res = calc.fac(5);
+        var pi = Calc.pi;
+        var res = Calc.fac(5);
 
-        Console.WriteLine(res);
+        Console.WriteLine($"{pi}, {res}");
     }
 }
 
