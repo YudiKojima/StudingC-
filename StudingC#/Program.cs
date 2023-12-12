@@ -2,46 +2,49 @@
 
 class Program
 {
-
-    delegate int Operation(int n1, int n2);
-
-    public class Calc
+    public static void Main(string[] args)
     {
-        public static int Fac(int n)
+        if (args.Length > 0)
         {
-            int res;
-
-            if (n <= 1)
-            {
-                res = 1;
-            }
-            else
-            {
-                res = n * Fac(n - 1);
-            }
-
-            return res;
+            Console.WriteLine($"{args.Length}");
         }
-
-        public static int Sum(int n1, int n2)
+        else
         {
-            return n1 + n2;
+            Console.WriteLine("Don't have args");
         }
-
-        public static int Multi(int n1, int n2)
-        {
-            return n1 * n2;
-        }
-    }
-
-    public static void Main()
-    {
-        var operation1 = new Operation(Calc.Sum);
-        Console.WriteLine(operation1(5, 5));
-        var operation2 = new Operation(Calc.Multi);
-        Console.WriteLine(operation2(5, 5));
     }
 }
+
+//delegate int Operation(int n1, int n2);
+
+//public class Calc
+//{
+//    public static int Fac(int n)
+//    {
+//        int res;
+
+//        if (n <= 1)
+//        {
+//            res = 1;
+//        }
+//        else
+//        {
+//            res = n * Fac(n - 1);
+//        }
+
+//        return res;
+//    }
+
+//    public static int Sum(int n1, int n2)
+//    {
+//        return n1 + n2;
+//    }
+
+//    public static int Multi(int n1, int n2)
+//    {
+//        return n1 * n2;
+//    }
+//}
 
 //public class Calculate
 //{
