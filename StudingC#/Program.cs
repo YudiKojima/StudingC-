@@ -1,43 +1,78 @@
-﻿using Calc;
-
-namespace Calc
-{
-    public class PerfectSquare
-    {
-        public int createSquarePerfect(int bas, int height)
-        {
-            if (bas != height)
-            {
-                throw new Exception("To be perfect square need that base is equal height");
-            }
-
-            return bas * height;
-        }
-    }
-}
-
-class Program
+﻿class Program
 {
     public static void Main()
     {
-        var perfectSquare = new PerfectSquare();
+        Dictionary<int, string> books = new Dictionary<int, string>();
 
-        try
+        books.Add(0, "teste0");
+        books.Add(1, "teste1");
+        books.Add(2, "teste2");
+        books.Add(3, "teste03");
+
+        if (books.ContainsKey(3) && books.ContainsValue("teste03"))
         {
-            var result = perfectSquare.createSquarePerfect(4, 4);
-            Console.WriteLine($"Perfect square created, size is {result}");
+            foreach (var book in books)
+            {
+                var bookKey = book.Key;
+                var bookValue = book.Value;
+                Console.WriteLine($"Dictionary has {bookKey} and {bookValue}");
+            }
+
+            ChangeDictionaryValue(books, 0, "mudei");
         }
-        catch (Exception e)
+    }
+
+    private static void ChangeDictionaryValue(Dictionary<int, string> books, int key, string value)
+    {
+        bool check = true;
+        books[key] = value;
+        Console.WriteLine($"value to {key} key modified to {value}, Do you want to check them all?");
+
+        if (!check) return;
+        foreach (var book in books)
         {
-            Console.WriteLine($"ERRO MESSAGE: {e.Message}");
-            Console.WriteLine($"EXCEPTION: {e}");
-        }
-        finally
-        {
-            Console.WriteLine("Finally");
+            var bookKey = book.Key;
+            var bookValue = book.Value;
+            Console.WriteLine($"Dictionary has {bookKey} and {bookValue}");
         }
     }
 }
+
+//public static void Main()
+//{
+//    var perfectSquare = new PerfectSquare();
+
+//    try
+//    {
+//        var result = perfectSquare.createSquarePerfect(4, 4);
+//        Console.WriteLine($"Perfect square created, size is {result}");
+//    }
+//    catch (Exception e)
+//    {
+//        Console.WriteLine($"ERRO MESSAGE: {e.Message}");
+//        Console.WriteLine($"EXCEPTION: {e}");
+//    }
+//    finally
+//    {
+//        Console.WriteLine("Finally");
+//    }
+//}
+
+//namespace Calc
+//{
+//    public class PerfectSquare
+//    {
+//        public int createSquarePerfect(int bas, int height)
+//        {
+//            if (bas != height)
+//            {
+//                throw new Exception("To be perfect square need that base is equal height");
+//            }
+
+//            return bas * height;
+//        }
+//    }
+//}
 
 //delegate int Operation(int n1, int n2);
 
