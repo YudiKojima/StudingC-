@@ -1,6 +1,6 @@
-﻿namespace StudingC_;
+﻿using Calc;
 
-class Program
+namespace Calc
 {
     public class PerfectSquare
     {
@@ -14,7 +14,10 @@ class Program
             return bas * height;
         }
     }
+}
 
+class Program
+{
     public static void Main()
     {
         var perfectSquare = new PerfectSquare();
