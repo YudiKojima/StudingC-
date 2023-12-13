@@ -2,22 +2,36 @@
 
 class Program
 {
+    public class PerfectSquare
+    {
+        public int createSquarePerfect(int bas, int height)
+        {
+            if (bas != height)
+            {
+                throw new Exception("To be perfect square need that base is equal height");
+            }
+
+            return bas * height;
+        }
+    }
+
     public static void Main()
     {
-        int n1 = 0, n2 = 0, result = 0;
-
-        n1 = 10;
-        n2 = 0;
+        var perfectSquare = new PerfectSquare();
 
         try
         {
-            result = n1 / n2;
-            Console.WriteLine(result);
+            var result = perfectSquare.createSquarePerfect(4, 4);
+            Console.WriteLine($"Perfect square created, size is {result}");
         }
         catch (Exception e)
         {
             Console.WriteLine($"ERRO MESSAGE: {e.Message}");
             Console.WriteLine($"EXCEPTION: {e}");
+        }
+        finally
+        {
+            Console.WriteLine("Finally");
         }
     }
 }
