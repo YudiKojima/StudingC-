@@ -2,41 +2,36 @@
 {
     public static void Main()
     {
-        Dictionary<int, string> books = new Dictionary<int, string>();
+        var books = new List<string>();
+        var books2 = new List<string>();
 
-        books.Add(0, "teste0");
-        books.Add(1, "teste1");
-        books.Add(2, "teste2");
-        books.Add(3, "teste03");
+        books.Add("Alice");
+        books.Add("Computacao");
+        books.Add("Engenharia");
 
-        if (books.ContainsKey(3) && books.ContainsValue("teste03"))
+        //books2.AddRange(books);
+
+        if (books.Contains("Alice"))
         {
-            foreach (var book in books)
-            {
-                var bookKey = book.Key;
-                var bookValue = book.Value;
-                Console.WriteLine($"Dictionary has {bookKey} and {bookValue}");
-            }
-
-            ChangeDictionaryValue(books, 0, "mudei");
-        }
-    }
-
-    private static void ChangeDictionaryValue(Dictionary<int, string> books, int key, string value)
-    {
-        bool check = true;
-        books[key] = value;
-        Console.WriteLine($"value to {key} key modified to {value}, Do you want to check them all?");
-
-        if (!check) return;
-        foreach (var book in books)
-        {
-            var bookKey = book.Key;
-            var bookValue = book.Value;
-            Console.WriteLine($"Dictionary has {bookKey} and {bookValue}");
+            Console.WriteLine("List has book you are looking for");
         }
     }
 }
+
+//private static void ChangeDictionaryValue(Dictionary<int, string> books, int key, string value)
+//{
+//    bool check = true;
+//    books[key] = value;
+//    Console.WriteLine($"value to {key} key modified to {value}, Do you want to check them all?");
+
+//    if (!check) return;
+//    foreach (var book in books)
+//    {
+//        var bookKey = book.Key;
+//        var bookValue = book.Value;
+//        Console.WriteLine($"Dictionary has {bookKey} and {bookValue}");
+//    }
+//}
 
 //public static void Main()
 //{
