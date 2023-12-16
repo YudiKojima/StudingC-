@@ -3,17 +3,31 @@
     public static void Main()
     {
         var books = new List<string>();
-        var books2 = new List<string>();
 
-        books.Add("Alice");
+        books.Add("Matematica");
         books.Add("Computacao");
         books.Add("Engenharia");
+        books.Add("Quimica");
+        books.Add("Nutricao");
+        books.Add("Quimica");
 
-        //books2.AddRange(books);
+        var indexOf = books.IndexOf("Quimica");
+        var lastIndexOf = books.LastIndexOf("Quimica");
 
-        if (books.Contains("Alice"))
+        Console.WriteLine($"na {indexOf} posicao e a primeira aparicao de Quimica, " +
+                          $"e {lastIndexOf} posicao e a ultima aparicao de Quimica");
+
+        books.Reverse();
+
+        indexOf = books.IndexOf("Quimica");
+        lastIndexOf = books.LastIndexOf("Quimica");
+
+        Console.WriteLine($"na {indexOf} posicao e a primeira aparicao de Quimica, " +
+                          $"e {lastIndexOf} posicao e a ultima aparicao de Quimica");
+        books.Sort();
+        foreach (var book in books)
         {
-            Console.WriteLine("List has book you are looking for");
+            Console.WriteLine(book);
         }
     }
 }
